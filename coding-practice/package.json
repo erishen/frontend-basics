@@ -1,0 +1,26 @@
+{
+  "name": "coding-practice",
+  "version": "1.0.0",
+  "description": "面试手写代码练习环境",
+  "scripts": {
+    "test": "node --test tests/",
+    "test:debounce": "node --test tests/01-debounce.test.js",
+    "test:throttle": "node --test tests/02-throttle.test.js",
+    "test:deep-clone": "node --test tests/03-deep-clone.test.js",
+    "test:new": "node --test tests/04-new.test.js",
+    "test:instanceof": "node --test tests/05-instanceof.test.js",
+    "test:call-apply-bind": "node --test tests/06-call-apply-bind.test.js",
+    "test:promise": "node --test tests/07-promise.test.js",
+    "test:promise-all": "node --test tests/08-promise-all.test.js",
+    "test:flat": "node --test tests/09-flat.test.js",
+    "test:unique": "node --test tests/10-unique.test.js",
+    "test:curry": "node --test tests/11-curry.test.js",
+    "test:event-emitter": "node --test tests/12-event-emitter.test.js",
+    "test:lru": "node --test tests/13-lru.test.js",
+    "test:template": "node --test tests/14-template.test.js",
+    "test:deep-merge": "node --test tests/15-deep-merge.test.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
