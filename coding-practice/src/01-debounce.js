@@ -8,6 +8,11 @@
  */
 function debounce(fn, delay) {
   // TODO: 在这里实现
+  let timer = null;
+  return function(...args) {
+    clearTimeout(timer)
+    timer = setTimeout(() => fn.apply(this, args), delay);
+  }
 }
 
 module.exports = debounce;

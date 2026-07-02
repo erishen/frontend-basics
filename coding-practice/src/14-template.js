@@ -8,6 +8,7 @@
  */
 function render(template, data) {
   // TODO: 在这里实现
+  return template.replace(/\{\{(\w+)\}\}/g, (_, key) => data[key.trim()] ?? "");
 }
 
 /**
@@ -15,6 +16,9 @@ function render(template, data) {
  */
 function renderDeep(template, data) {
   // TODO: 在这里实现
+  return template.replace(/\{\{([\w.]+)\}\}/g, (_, path) => {
+    return path.trim().split(".").reduce((obj, key) => obj?.[key], data) ?? "";
+  })
 }
 
 module.exports = { render, renderDeep };

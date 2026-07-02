@@ -25,6 +25,14 @@ class MyPromise {
     }
   }
 
+  static resolve(value) {
+    return new MyPromise((resolve) => resolve(value));
+  }
+
+  static reject(reason) {
+    return new MyPromise((_, reject) => reject(reason));
+  }
+
   then(onFulfilled, onRejected) {
     if (typeof onFulfilled !== "function") onFulfilled = (v) => v;
     if (typeof onRejected !== "function") onRejected = (e) => { throw e; };

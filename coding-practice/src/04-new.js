@@ -8,6 +8,9 @@
  */
 function myNew(Constructor, ...args) {
   // TODO: 在这里实现
+  const obj = Object.create(Constructor.prototype);
+  const result = Constructor.apply(obj, args);
+  return result instanceof Object ? result : obj;
 }
 
 module.exports = myNew;

@@ -7,6 +7,8 @@ class LRUCache {
    */
   constructor(capacity) {
     // TODO: 在这里实现
+    this.capacity = capacity;
+    this.cache = new Map();
   }
 
   /**
@@ -15,6 +17,11 @@ class LRUCache {
    */
   get(key) {
     // TODO: 在这里实现
+    if(!this.cache.has(key)) return -1;
+    const value = this.cache.get(key);
+    this.cache.delete(key);
+    this.cache.set(key, value);
+    return value;
   }
 
   /**
@@ -23,6 +30,13 @@ class LRUCache {
    */
   put(key, value) {
     // TODO: 在这里实现
+    if(this.cache.has(key)) {
+      this.cache.delete(key);
+    } else if(this.cache.size >= this.capacity) {
+      const oldestKey = this.cache.keys().next().value;
+      this.cache.delete(oldestKey);
+    }
+    this.cache.set(key, value);
   }
 }
 

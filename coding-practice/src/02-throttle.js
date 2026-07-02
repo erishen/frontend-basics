@@ -8,6 +8,15 @@
  */
 function throttle(fn, interval) {
   // TODO: 在这里实现
+  let lastTime = 0;
+  return function(...args) {
+    const now = Date.now();
+
+    if(now - lastTime >= interval){
+      lastTime = now
+      fn.apply(this, args);
+    }
+  }
 }
 
 module.exports = throttle;

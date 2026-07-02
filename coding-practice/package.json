@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "面试手写代码练习环境",
   "scripts": {
-    "test": "node --test tests/",
+    "test": "node --test tests/*.test.js",
     "test:debounce": "node --test tests/01-debounce.test.js",
     "test:throttle": "node --test tests/02-throttle.test.js",
     "test:deep-clone": "node --test tests/03-deep-clone.test.js",
@@ -18,7 +18,9 @@
     "test:event-emitter": "node --test tests/12-event-emitter.test.js",
     "test:lru": "node --test tests/13-lru.test.js",
     "test:template": "node --test tests/14-template.test.js",
-    "test:deep-merge": "node --test tests/15-deep-merge.test.js"
+    "test:deep-merge": "node --test tests/15-deep-merge.test.js",
+    "test:async-pool": "node --test tests/16-async-pool.test.js",
+    "test:jsonp": "node --test tests/17-jsonp.test.js"
   },
   "engines": {
     "node": ">=18.0.0"

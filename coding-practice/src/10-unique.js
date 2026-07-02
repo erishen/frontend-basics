@@ -7,6 +7,7 @@
  */
 function unique(arr) {
   // TODO: 在这里实现
+  return arr.filter((item, index) => arr.indexOf(item) === index)
 }
 
 /**
@@ -17,6 +18,11 @@ function unique(arr) {
  */
 function uniqueBy(arr, key) {
   // TODO: 在这里实现
+  const seen = new Set();
+  return arr.filter((item) =>  {
+    const k = item[key];
+    return seen.has(k) ? false : (seen.add(k), true);
+  });
 }
 
 module.exports = { unique, uniqueBy };
