@@ -1,0 +1,8 @@
+[project]
+name = "python-practice"
+version = "1.0.0"
+description = "Python 面试手写代码练习环境"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
