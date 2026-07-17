@@ -1,0 +1,8 @@
+[project]
+name = "fastapi-practice"
+version = "1.0.0"
+description = "FastAPI 入门手写练习环境"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -12,4 +12,15 @@ def chunk_text(text: str, chunk_size: int, overlap: int = 0) -> list[str]:
     - 返回分块列表
     """
     # TODO: 实现
-    pass
+    if not text or chunk_size <= 0:
+        return []
+    chunks = []
+    start = 0
+    while start < len(text):
+        end = start + chunk_size
+        chunks.append(text[start:end])
+        start = end - overlap
+        if start >= len(text) or overlap >= chunk_size:
+            break
+    return chunks
+

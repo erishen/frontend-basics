@@ -2,6 +2,7 @@
 AI 场景 05: 对话历史截断
 根据 token 预算裁剪对话历史，保留最近的对话
 """
+import re
 
 
 def estimate_tokens(text: str) -> int:
@@ -10,7 +11,9 @@ def estimate_tokens(text: str) -> int:
     实际生产中会调用 tokenizer，这里做简化。
     """
     # TODO: 实现（英文单词数 + 中文字符数）
-    pass
+    chinese = len(re.findall(r"[\u4e00-\u9fff]", text))
+    english = len(re.sub(r"[\u4e00-\u9fff]", " ", text).split())
+    return chinese + english
 
 
 def truncate_history(
@@ -25,4 +28,13 @@ def truncate_history(
     - 返回截断后的消息列表
     """
     # TODO: 实现
-    pass
+    result = [system_msg] if system_msg else []
+    buget, selected = max_tokens, []
+    for msg in reversed(messages):
+        tokens = estimate_tokens(msg["content"])
+        if tokens > buget:
+            break
+        selected.append(msg)
+        budget -= tokens 
+    result.extend(reversed(selected))
+    return result

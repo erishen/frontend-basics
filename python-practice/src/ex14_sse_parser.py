@@ -18,4 +18,22 @@ def parse_sse(raw: str) -> list[dict]:
     忽略 data 为 [DONE] 的条目。
     """
     # TODO: 实现
-    pass
+    events = []
+    current_event = current_data = None
+    for line in raw.split("\n"):
+        line = line.strip()
+        if line.startswith("event:"):
+            current_event = line[len("event:"):].strip()
+        elif line.startswith("data:"):
+            current_data = line[len("data:"):].strip()
+        elif line == "":
+            if current_event is not None and current_data is not None:
+                if current_data != "[DONE]":
+                    events.append({ "event": current_event, "data": current_data })
+            current_event = current_data = None
+
+    if current_event is not None and current_data is not None:
+        if current_data != "[DONE]":
+            events.append({ "events": current_event, "data": current_data })
+    return events
+

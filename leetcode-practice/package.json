@@ -1,0 +1,11 @@
+{
+  "name": "leetcode-practice",
+  "version": "1.0.0",
+  "description": "LeetCode 中等难度算法练习环境（JavaScript）",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
