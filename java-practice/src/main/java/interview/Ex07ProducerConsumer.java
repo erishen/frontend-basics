@@ -24,7 +24,7 @@ public class Ex07ProducerConsumer {
                     queue.put(i);
                 }
             } catch(InterruptedException e){
-                Thread.currentThead().interrupt();
+                Thread.currentThread().interrupt();
             }
         }).start();
     }
@@ -37,7 +37,7 @@ public class Ex07ProducerConsumer {
                     System.out.println("Consumed: " + item);
                 }
             } catch(InterruptedException e) {
-                Thread.currentThead().interrupt();
+                Thread.currentThread().interrupt();
             }
         }).start();
     }

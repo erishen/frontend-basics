@@ -8,15 +8,15 @@ package interview;
 public class Ex02Singleton {
 
     // TODO: 在这里实现
-    private static volatile Singleton instance;
+    private static volatile Ex02Singleton instance;
 
-    private Singleton() {}
+    private Ex02Singleton() {}
 
-    public static Singleton getInstance() {
+    public static Ex02Singleton getInstance() {
         if(instance == null){
-            synchronized(Singleton.class) {
+            synchronized(Ex02Singleton.class) {
                 if(instance == null) {
-                    instance = new Singleton();
+                    instance = new Ex02Singleton();
                 }
             }
         }

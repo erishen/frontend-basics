@@ -1,5 +1,11 @@
 package interview;
 
+import java.util.Map;
+import java.util.List;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.function.Consumer;
+
 /**
  * 设计模式：观察者模式
  * 实现简单的发布-订阅系统
